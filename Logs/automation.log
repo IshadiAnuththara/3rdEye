@@ -1,0 +1,6 @@
+2023-06-23 16:42:23,013 - selenium.webdriver.common.selenium_manager - INFO - Applicable driver not found; attempting to install with Selenium Manager (Beta)
+2023-06-23 16:42:30,611 - root - INFO - ********* Login with valid credentials Test Passed *********
+2023-06-23 16:43:14,095 - selenium.webdriver.common.selenium_manager - INFO - Applicable driver not found; attempting to install with Selenium Manager (Beta)
+2023-06-23 16:43:24,774 - root - INFO - ********* Login with valid credentials Test Passed *********
+2023-06-23 16:44:48,755 - selenium.webdriver.common.selenium_manager - INFO - Applicable driver not found; attempting to install with Selenium Manager (Beta)
+2023-06-23 16:44:59,338 - root - INFO - ********* Login with valid credentials Test Passed *********

@@ -5,15 +5,16 @@ from selenium import webdriver
 from pageObjects.LoginPage import LoginPage
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
+from pageObjects.RecipesPage import RecipesPage
 
 
-class Test_Login:
+class Test_AccessRecipes:
     baseURL = ReadConfig.getApplication(self)
     username = ReadConfig.getUsername()
     password = ReadConfig.getPassword()
     logger = LogGen.loggen()
 
-    def test_login(self, setup):
+    def test_accessRecipes(self, setup):
         self.driver = setup
         self.driver.get(self.baseURL)
 
@@ -26,15 +27,9 @@ class Test_Login:
         self.lp.clickLogin()
         time.sleep(5)
 
-        self.msg = self.driver.find_element(By.XPATH, "//div[@class='notifyjs-corner']").text
+        # Access Recipes
 
-        print(self.msg)
-        if 'Successfully logged in.' in self.msg:
-            assert True
-            self.logger.info("********* Login with valid credentials Test Passed *********")
-        else:
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_login_scr.png")  # Screenshot
-            self.logger.error("********* Login with valid credentials Test Failed ************")
-            assert False
-
+        self.rp = RecipesPage(self.driver)
+        self.rp.clickRecipies()
+        time.sleep(3)
         self.driver.close()

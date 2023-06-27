@@ -74,3 +74,27 @@
 2023-06-26 14:29:49,075 - root - INFO - ********* Add Recipes - Test Passed *********
 2023-06-26 16:21:29,052 - root - ERROR - ********* Delete Eye Donation Test Failed ************
 2023-06-26 16:22:09,565 - root - INFO - ********* Delete Eye Donation Test Passed *********
+2023-06-27 11:14:51,253 - root - INFO - ********* Add User Role - Without Enter Any Field Test Passed *********
+2023-06-27 11:22:16,803 - root - ERROR - ********* Add User Role - Only Add User Role Test Failed ************
+2023-06-27 11:22:55,200 - root - ERROR - ********* Add User Role - Only Add User Role Test Failed ************
+2023-06-27 11:35:30,896 - root - INFO - ********* Add User Role - Without Enter Any Field Test Passed *********
+2023-06-27 11:35:30,896 - root - INFO - ********* Add User Role - Without Enter Any Field Test Passed *********
+2023-06-27 11:41:44,104 - root - ERROR - ********* Add User Role - Only Add User Role Test Failed ************
+2023-06-27 12:07:14,537 - root - INFO - ********* Add User Role - OnlyAddPermissions Test Passed *********
+2023-06-27 12:09:54,138 - root - INFO - ********* Add User Role - Existing User Role Test Passed *********
+2023-06-27 12:53:26,709 - root - INFO - ********* Add User Role - Only Add User Role Test Passed *********
+2023-06-27 13:16:25,998 - root - INFO - ********* Edit User Role Test Passed *********
+2023-06-27 14:42:18,951 - root - INFO - ********* Add Member Test Passed *********
+2023-06-27 14:55:05,171 - root - INFO - ********* Add Member - Without Fill Any Field Test Passed *********
+2023-06-27 14:58:11,701 - root - INFO - ********* Add Member - Only Add Email Test Passed *********
+2023-06-27 15:03:27,139 - root - INFO - ********* Add Member - Invalid Only Add Username Test Passed *********
+2023-06-27 15:12:49,410 - root - INFO - ********* Add Member - Invalid Only Add Password Test Passed *********
+2023-06-27 15:21:21,280 - root - INFO - ********* Add Member - Invalid - Only Add First Name Test Passed *********
+2023-06-27 15:26:29,280 - root - INFO - ********* Add Member - Invalid - Only Add Last Name Test Passed *********
+2023-06-27 15:29:16,671 - root - INFO - ********* Add Member - Invalid - Only Select Role Test Passed *********
+2023-06-27 15:36:34,265 - root - INFO - ********* Add Member - Invalid - Only Select Active Status Test Passed *********
+2023-06-27 15:39:20,390 - root - INFO - ********* Add Member - Invalid - Only Select Active Status Test Passed *********
+2023-06-27 15:40:37,244 - root - INFO - ********* Add Member - Invalid - Only Select Active Status Test Passed *********
+2023-06-27 16:07:45,029 - root - INFO - ********* Add Member - Invalid - Only Add Username And Password Test Passed *********
+2023-06-27 16:11:30,764 - root - INFO - ********* Add Member - Invalid_Only Add Email,FirstName, and LastName Test Passed *********
+2023-06-27 16:16:50,388 - root - INFO - ********* Add Member - Invalid Without SelectRole And ActiveStatus Test Passed *********

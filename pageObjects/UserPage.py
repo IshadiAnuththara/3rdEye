@@ -35,6 +35,10 @@ class UserPage:
                                "-top-control/nz-select-search/input"
     div_inactive_xpath = "//div[normalize-space()='Inactive']"
     span_save_xpath = "//span[normalize-space()='Save']"
+    input_search_xpath = "//input[@placeholder='Search name']"
+    span_search_xpath = "//span[@class='anticon anticon-search']"
+    button_refresh_xpath = "(//button[@class='ant-btn d-flex align-items-center p-0 justify-content-center " \
+                           "ng-star-inserted'])[1]"
 
     def __init__(self, driver):
         self.driver = driver
@@ -118,4 +122,15 @@ class UserPage:
 
     def clickSave_addMember(self):
         self.driver.find_element(By.XPATH, self.span_save_xpath).click()
+
+    def setSearch(self, name):
+        self.driver.find_element(By.XPATH, self.input_search_xpath).send_keys(name)
+
+    def clickSearch(self):
+        self.driver.find_element(By.XPATH, self.span_search_xpath).click()
+
+    def clickRefresh(self):
+        self.driver.find_element(By.XPATH, self.button_refresh_xpath).click()
+
+
 

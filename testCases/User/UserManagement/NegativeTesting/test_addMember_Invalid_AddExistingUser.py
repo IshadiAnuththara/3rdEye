@@ -8,7 +8,7 @@ from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
 
 
-class Test_AddMember:
+class Test_AddMember_Invalid_AddExistingUser:
     baseURL = ReadConfig.getApplication(self)
     username = ReadConfig.getUsername()
     password = ReadConfig.getPassword()
@@ -42,11 +42,11 @@ class Test_AddMember:
 
         self.userManagement.clickAddMember()
         time.sleep(2)
-        self.userManagement.setUsername("TestUser007")
+        self.userManagement.setUsername("TestUser")
         time.sleep(3)
         self.userManagement.clickGeneratePassword()
         time.sleep(5)
-        self.userManagement.setEmail("mar.is.saa.l.d.a0@gmail.com")
+        self.userManagement.setEmail("sam.ue.le.r.utte.r.4.14@gmail.com")
         time.sleep(3)
         self.userManagement.setFirstName("Brielle")
         time.sleep(3)
@@ -61,12 +61,12 @@ class Test_AddMember:
 
         self.msg = self.driver.find_element(By.XPATH, "//div[@class='notifyjs-corner']").text
         print(self.msg)
-        if 'Successfully created.' in self.msg:
+        if 'Username already exists. Please choose a different name.' in self.msg:
             assert True
-            self.logger.info("********* Add Member Test Passed *********")
+            self.logger.info("********* Add Member - Invalid - Add Existing User Test Passed *********")
         else:
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_addMember_scr.png")  # Screenshot
-            self.logger.error("********* Add Member Test Failed ************")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_addMember_Invalid_AddExistingUser_scr.png")  # Screenshot
+            self.logger.error("********* Add Member - Invalid - Add Existing User Test Failed ************")
             assert False
         self.driver.close()
 

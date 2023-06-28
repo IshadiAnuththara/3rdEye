@@ -8,7 +8,7 @@ from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
 
 
-class Test_AddMember:
+class Test_AddMember_Invalid_AddExistingEmail:
     baseURL = ReadConfig.getApplication(self)
     username = ReadConfig.getUsername()
     password = ReadConfig.getPassword()
@@ -42,11 +42,11 @@ class Test_AddMember:
 
         self.userManagement.clickAddMember()
         time.sleep(2)
-        self.userManagement.setUsername("TestUser007")
+        self.userManagement.setUsername("TestUser")
         time.sleep(3)
         self.userManagement.clickGeneratePassword()
         time.sleep(5)
-        self.userManagement.setEmail("mar.is.saa.l.d.a0@gmail.com")
+        self.userManagement.setEmail("miwabog446@fitwl.com")
         time.sleep(3)
         self.userManagement.setFirstName("Brielle")
         time.sleep(3)
@@ -61,12 +61,12 @@ class Test_AddMember:
 
         self.msg = self.driver.find_element(By.XPATH, "//div[@class='notifyjs-corner']").text
         print(self.msg)
-        if 'Successfully created.' in self.msg:
+        if 'Email already exists. Please choose a different email.' in self.msg:
             assert True
-            self.logger.info("********* Add Member Test Passed *********")
+            self.logger.info("********* Add Member Test - Invalid - Add Existing Email Test Passed *********")
         else:
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_addMember_scr.png")  # Screenshot
-            self.logger.error("********* Add Member Test Failed ************")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_addMember_Invalid_AddExistingEmail_scr.png")  # Screenshot
+            self.logger.error("********* Add Member Test - Invalid - Add Existing Email Test Failed ************")
             assert False
         self.driver.close()
 

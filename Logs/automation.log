@@ -1483,3 +1483,11 @@
 2023-06-28 16:12:08,836 - root - INFO - ********* Add Member - Invalid - Add Existing User Test Passed *********
 2023-06-28 16:14:07,493 - root - ERROR - ********* Add Member - Invalid - Add Invalid Email Test Failed ************
 2023-06-28 16:15:56,601 - root - INFO - ********* Add Member - Invalid - Add Invalid Email Test Passed *********
+2023-06-29 08:50:59,412 - root - INFO - ********* Close banners Test Passed *********
+2023-06-29 14:20:17,953 - root - INFO - ********* Login with invalid credentials Test Passed *********
+2023-06-29 14:31:07,371 - root - INFO - ********* Login with invalid credentials Test Passed *********
+2023-06-29 16:27:36,953 - root - INFO - ********* Add Recipes - Test Passed *********
+2023-06-29 16:29:29,710 - root - ERROR - ********* Add Recipes - Test Failed ************
+2023-06-29 16:31:09,271 - root - ERROR - ********* Add Recipes - Test Failed ************
+2023-06-29 16:37:03,826 - root - ERROR - ********* Add Recipes - Test Failed ************
+2023-06-29 16:49:33,427 - root - INFO - ********* Login with valid credentials Test Passed *********

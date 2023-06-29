@@ -19,6 +19,7 @@ class BannersPage:
                           "/tbody/tr[1]/td[3]/button[2]"
     span_ok_xpath = "//span[normalize-space()='OK']"
     span_checkbox_xpath = "//span[@class='ant-checkbox']"
+    button_close_xpath = "(//button[@type='button'])[4]"
 
     def __init__(self, driver):
         self.driver = driver
@@ -66,3 +67,6 @@ class BannersPage:
 
     def clickCheckbox(self):
         self.driver.find_element(By.XPATH, self.span_checkbox_xpath).click()
+
+    def clickClose(self):
+        self.driver.find_element(By.XPATH, self.button_close_xpath).click()

@@ -1,7 +1,6 @@
 import time
 from selenium.webdriver.common.by import By
 import self as self
-from selenium import webdriver
 from pageObjects.LoginPage import LoginPage
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen

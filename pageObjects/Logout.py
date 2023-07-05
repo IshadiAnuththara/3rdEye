@@ -1,5 +1,3 @@
-import time
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
@@ -23,4 +21,3 @@ class Logout:
 
     def clickLogout(self):
         self.driver.find_element(By.XPATH, self.button_logout_xpath).click()
-

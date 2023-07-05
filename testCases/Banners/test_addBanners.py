@@ -1,7 +1,6 @@
 import time
 from selenium.webdriver.common.by import By
 import self as self
-from selenium import webdriver
 from pageObjects.LoginPage import LoginPage
 from pageObjects.BannersPage import BannersPage
 from utilities.readProperties import ReadConfig
@@ -55,4 +54,3 @@ class Test_AddBanners:
             self.logger.error("********* Add Banner Test Failed ************")
             assert False
         self.driver.close()
-

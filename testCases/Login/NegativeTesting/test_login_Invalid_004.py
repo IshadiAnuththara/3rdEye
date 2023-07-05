@@ -1,7 +1,6 @@
 import time
 from selenium.webdriver.common.by import By
 import self as self
-from selenium import webdriver
 from pageObjects.LoginPage import LoginPage
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
@@ -27,7 +26,6 @@ class Test_Login:
         time.sleep(3)
         self.lp.clickLogin()
 
-        time.sleep(5)
         self.msg = self.driver.find_element(By.XPATH, "//div[@class='notifyjs-corner']").text
         print(self.msg)
         if 'Missing credentials' in self.msg:

@@ -1,5 +1,4 @@
 import time
-
 from selenium.webdriver.common.by import By
 
 
@@ -131,6 +130,3 @@ class UserPage:
 
     def clickRefresh(self):
         self.driver.find_element(By.XPATH, self.button_refresh_xpath).click()
-
-
-

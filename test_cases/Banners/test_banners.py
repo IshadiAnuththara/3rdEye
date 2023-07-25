@@ -21,16 +21,16 @@ class TestBanners:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(4)
 
         # Access Banners
 
         self.banners = BannersPage(self.driver)
-        self.banners.clickBanners()
+        self.banners.click_banners()
         self.logger.info("********* Access Banners - Test Passed *********")
         time.sleep(5)
         self.driver.close()
@@ -42,28 +42,28 @@ class TestBanners:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(4)
 
         # Access Banners
 
         self.banners = BannersPage(self.driver)
-        self.banners.clickBanners()
+        self.banners.click_banners()
 
         # Add Banner
 
-        self.banners.clickAddBanner()
+        self.banners.click_add_banner()
         time.sleep(3)
-        self.banners.clickUpload()
+        self.banners.click_upload()
         time.sleep(3)
-        self.banners.clickChooseImage()
+        self.banners.click_choose_image()
         time.sleep(3)
-        self.banners.clickAdd()
+        self.banners.click_add()
         time.sleep(3)
-        self.banners.clickSave()
+        self.banners.click_save()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -84,23 +84,23 @@ class TestBanners:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(4)
 
         # Access Banners
 
         self.banners = BannersPage(self.driver)
-        self.banners.clickBanners()
+        self.banners.click_banners()
         time.sleep(3)
 
         # Close banners
 
-        self.banners.clickEdit()
+        self.banners.click_edit()
         time.sleep(3)
-        self.banners.clickClose()
+        self.banners.click_close()
         time.sleep(3)
         self.driver.switch_to.alert.accept()
         time.sleep(5)
@@ -123,28 +123,28 @@ class TestBanners:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(4)
 
         # Access Banners
 
         self.banners = BannersPage(self.driver)
-        self.banners.clickBanners()
+        self.banners.click_banners()
         time.sleep(3)
         # Edit Banner
 
-        self.banners.clickEdit()
+        self.banners.click_edit()
         time.sleep(3)
-        self.banners.clickUpload()
+        self.banners.click_upload()
         time.sleep(3)
-        self.banners.clickChooseImage()
+        self.banners.click_choose_image()
         time.sleep(3)
-        self.banners.clickAdd()
+        self.banners.click_add()
         time.sleep(3)
-        self.banners.clickSave()
+        self.banners.click_save()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -165,21 +165,21 @@ class TestBanners:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(4)
 
         # Access Banners
 
         self.banners = BannersPage(self.driver)
-        self.banners.clickBanners()
+        self.banners.click_banners()
         time.sleep(5)
 
         # Show Banners
 
-        self.banners.clickCheckbox()
+        self.banners.click_checkbox()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -200,21 +200,21 @@ class TestBanners:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(4)
 
         # Access Banners
 
         self.banners = BannersPage(self.driver)
-        self.banners.clickBanners()
+        self.banners.click_banners()
         time.sleep(3)
 
         # Delete Banners
 
-        self.banners.clickDelete()
+        self.banners.click_delete()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text

@@ -23,15 +23,15 @@ class TestEyeDonation:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
 
         # Access Eye Donation
         time.sleep(4)
         self.ed = EyeDonationPage(self.driver)
-        self.ed.clickEyeDonation()
+        self.ed.click_eye_donation()
 
         time.sleep(5)
         self.driver.close()
@@ -43,25 +43,25 @@ class TestEyeDonation:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
 
         # Access Eye Donation
 
         time.sleep(4)
         self.ed = EyeDonationPage(self.driver)
-        self.ed.clickEyeDonation()
+        self.ed.click_eye_donation()
         time.sleep(3)
 
         # Search Eye donations by name
 
-        self.ed.setSearch("kavindu")
+        self.ed.set_search("kavindu")
         time.sleep(3)
-        self.ed.clickSearch()
+        self.ed.click_search()
         time.sleep(3)
-        self.ed.clickRefresh()
+        self.ed.click_refresh()
 
         time.sleep(5)
         self.driver.close()
@@ -73,22 +73,22 @@ class TestEyeDonation:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
 
         # Access Eye Donation
         time.sleep(4)
         self.ed = EyeDonationPage(self.driver)
-        self.ed.clickEyeDonation()
+        self.ed.click_eye_donation()
         time.sleep(3)
 
         # View Eye Donation
 
-        self.ed.clickViewEyeDonation()
+        self.ed.click_view_eye_donation()
         time.sleep(5)
-        self.ed.clickClose()
+        self.ed.click_close()
 
         time.sleep(5)
         self.driver.close()
@@ -100,21 +100,21 @@ class TestEyeDonation:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(4)
 
         # Access Eye Donation
 
         self.ed = EyeDonationPage(self.driver)
-        self.ed.clickEyeDonation()
+        self.ed.click_eye_donation()
         time.sleep(3)
 
         # Delete Eye Donation
 
-        self.ed.clickDelete()
+        self.ed.click_delete()
 
         time.sleep(5)
 

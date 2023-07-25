@@ -27,21 +27,21 @@ class TestUserManagement:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
         self.um = UserPage(self.driver)
-        self.um.clickUser()
+        self.um.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.um.clickUserManagement()
+        self.um.click_user_management()
 
         time.sleep(4)
         self.driver.close()
@@ -53,40 +53,40 @@ class TestUserManagement:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
         self.userManagement = UserPage(self.driver)
-        self.userManagement.clickUser()
+        self.userManagement.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.userManagement.clickUserManagement()
+        self.userManagement.click_user_management()
         time.sleep(3)
 
         # Add Member
 
-        self.userManagement.clickAddMember()
+        self.userManagement.click_add_member()
         time.sleep(2)
-        self.userManagement.setUsername(self.name)
+        self.userManagement.set_username(self.name)
         time.sleep(3)
-        self.userManagement.clickGeneratePassword()
+        self.userManagement.click_generate_password()
         time.sleep(5)
-        self.userManagement.setEmail(self.email)
+        self.userManagement.set_email(self.email)
         time.sleep(3)
-        self.userManagement.setFirstName(self.first_name)
+        self.userManagement.set_first_name(self.first_name)
         time.sleep(3)
-        self.userManagement.setLastName(self.last_name)
+        self.userManagement.set_last_name(self.last_name)
         time.sleep(3)
-        self.userManagement.clickRole()
+        self.userManagement.click_role()
         time.sleep(3)
-        self.userManagement.clickActiveStatus()
+        self.userManagement.click_active_status()
         time.sleep(3)
         self.userManagement.clickSave_addMember()
         time.sleep(5)
@@ -109,29 +109,29 @@ class TestUserManagement:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
         self.userManagement = UserPage(self.driver)
-        self.userManagement.clickUser()
+        self.userManagement.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.userManagement.clickUserManagement()
+        self.userManagement.click_user_management()
         time.sleep(3)
 
         # Search User
 
-        self.userManagement.setSearch(self.search_name)
+        self.userManagement.set_search(self.search_name)
         time.sleep(2)
-        self.userManagement.clickSearch()
+        self.userManagement.click_search()
         time.sleep(3)
-        self.userManagement.clickRefresh()
+        self.userManagement.click_refresh()
         time.sleep(4)
         self.driver.close()

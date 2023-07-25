@@ -88,7 +88,7 @@ class TestUserManagement:
         time.sleep(3)
         self.userManagement.click_active_status()
         time.sleep(3)
-        self.userManagement.clickSave_addMember()
+        self.userManagement.click_save_add_member()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text

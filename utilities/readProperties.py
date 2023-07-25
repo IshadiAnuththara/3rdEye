@@ -6,26 +6,26 @@ config.read(".\\Configurations\\config.ini")
 
 class ReadConfig:
     @staticmethod
-    def getApplication(self):
-        url = config.get('common data', 'baseURL')
+    def get_application_url(self):
+        url = config.get('common data', 'base_url')
         return url
 
     @staticmethod
-    def getUsername():
+    def get_username():
         username = config.get('common data', 'username')
         return username
 
     @staticmethod
-    def getPassword():
+    def get_password():
         password = config.get('common data', 'password')
         return password
 
     @staticmethod
-    def getInvalidUsername():
-        invalidUsername = config.get('common data', 'invalidUsername')
-        return invalidUsername
+    def get_invalid_username():
+        invalid_username = config.get('common data', 'invalid_username')
+        return invalid_username
 
     @staticmethod
-    def getInvalidPassword():
-        invalidPassword = config.get('common data', 'invalidPassword')
-        return invalidPassword
+    def get_invalid_password():
+        invalid_password = config.get('common data', 'invalid_password')
+        return invalid_password

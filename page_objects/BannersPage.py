@@ -20,6 +20,8 @@ class BannersPage:
     span_ok_xpath = "//span[normalize-space()='OK']"
     span_checkbox_xpath = "//span[@class='ant-checkbox']"
     button_close_xpath = "(//button[@type='button'])[4]"
+    upload_image = "C:\\Users\\Ishadi\\Pictures\\3rd eye\\testBanner_01.jpg"
+    upload_banner = "C:\\Users\\Ishadi\\Pictures\\3rd eye\\test_banner_02.jpg"
 
     def __init__(self, driver):
         self.driver = driver
@@ -37,7 +39,7 @@ class BannersPage:
         self.driver.find_element(By.XPATH, self.span_choose_image_xpath).click()
         time.sleep(3)
         # Set the file path of the AutoIT script
-        autoit_script = "C:\\Users\\Ishadi\\Pictures\\3rd eye\\testBanner_01.jpg"
+        autoit_script = self.upload_image
         time.sleep(1)
         pyautogui.typewrite(autoit_script)
         pyautogui.press("enter")
@@ -55,7 +57,7 @@ class BannersPage:
         self.driver.find_element(By.XPATH, self.span_choose_image_xpath).click()
         time.sleep(3)
         # Set the file path of the AutoIT script
-        autoit_script = "C:\\Users\\Ishadi\\Pictures\\3rd eye\\test_banner_02.jpg"
+        autoit_script = self.upload_banner
         time.sleep(1)
         pyautogui.typewrite(autoit_script)
         pyautogui.press("enter")

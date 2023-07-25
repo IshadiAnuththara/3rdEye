@@ -13,6 +13,7 @@ class TestBanners:
     password = ReadConfig.get_password()
     logger = LogGen.loggen()
     notification = "//div[@class='notifyjs-corner']"
+    screenshot = ".\\Screenshots\\"
 
     def test_access_banners(self, setup):
         self.driver = setup
@@ -31,7 +32,6 @@ class TestBanners:
 
         self.banners = BannersPage(self.driver)
         self.banners.click_banners()
-        self.logger.info("********* Access Banners - Test Passed *********")
         time.sleep(5)
         self.driver.close()
 
@@ -72,7 +72,7 @@ class TestBanners:
             assert True
             self.logger.info("********* Add Banner Test Passed *********")
         else:
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_addBanner_scr.png")  # Screenshot
+            self.driver.save_screenshot(self.screenshot + "test_addBanner_scr.png")
             self.logger.error("********* Add Banner Test Failed ************")
             assert False
         self.driver.close()
@@ -80,12 +80,13 @@ class TestBanners:
     def test_close_banners(self, setup):
         self.driver = setup
         self.driver.get(self.base_url)
+        driver = self.driver
 
         # Login
 
-        self.lp = LoginPage(self.driver)
-        self.lp.set_username(self.username)
-        self.lp.set_password(self.password)
+        lp = LoginPage(driver)
+        lp.set_username(self.username)
+        lp.set_password(self.password)
         time.sleep(3)
         self.lp.click_login()
         time.sleep(4)
@@ -111,7 +112,7 @@ class TestBanners:
             assert True
             self.logger.info("********* Close banners Test Passed *********")
         else:
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_closeBanners_scr.png")  # Screenshot
+            self.driver.save_screenshot(self.screenshot + "test_closeBanners_scr.png")  
             self.logger.error("********* Close banners Test Failed ************")
             assert False
         self.driver.close()
@@ -153,7 +154,7 @@ class TestBanners:
             assert True
             self.logger.info("********* Edit Banner Test Passed *********")
         else:
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_editBanner_scr.png")  # Screenshot
+            self.driver.save_screenshot(self.screenshot + "test_editBanner_scr.png")
             self.logger.error("********* Edit Banner Test Failed ************")
             assert False
         self.driver.close()
@@ -188,7 +189,7 @@ class TestBanners:
             assert True
             self.logger.info("********* Show Banner Test Passed *********")
         else:
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_showBanner_scr.png")  # Screenshot
+            self.driver.save_screenshot(self.screenshot + "test_showBanner_scr.png")
             self.logger.error("********* Show Banner Test Failed ************")
             assert False
         self.driver.close()
@@ -223,7 +224,7 @@ class TestBanners:
             assert True
             self.logger.info("********* Delete Banner Test Passed *********")
         else:
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_deleteBanner_scr.png")  # Screenshot
+            self.driver.save_screenshot(self.screenshot + "test_deleteBanner_scr.png")
             self.logger.error("********* Delete Banner Test Failed ************")
             assert False
         self.driver.close()

@@ -19,6 +19,9 @@ class RecipesPage:
     button_search_xpath = "(//button[@type='submit'])[1]"
     button_refresh_xpath = "(//button[@class='ant-btn d-flex align-items-center p-0 justify-content-center " \
                            "ng-star-inserted'])[1]"
+    upload_image = "C:\\Users\\Ishadi\\Pictures\\3rd eye\\Smoothie.png"
+    upload_audio = "C:\\Users\\Ishadi\\Pictures\\3rd eye\\Recipe Audio\\Recipe-No-006.mp3"
+    edit_upload_image = "C:\\Users\\Ishadi\\Pictures\\3rd eye\\Test_Smoothies.png"
 
     def __init__(self, driver):
         self.driver = driver
@@ -39,14 +42,13 @@ class RecipesPage:
         self.driver.find_element(By.XPATH, self.span_choose_image_xpath).click()
         time.sleep(3)
         # Set the file path of the AutoIT script
-        autoit_script = "C:\\Users\\Ishadi\\Pictures\\3rd eye\\Smoothie.png"
+        autoit_script = self.upload_image
         time.sleep(1)
         pyautogui.typewrite(autoit_script)
         pyautogui.press("enter")
 
     def add_audio(self):
-        self.driver.find_element(By.XPATH, self.input_audio_xpath).send_keys("C:\\Users\\Ishadi\\Pictures\\3rd "
-                                                                             "eye\\Recipe Audio\\Recipe-No-006.mp3")
+        self.driver.find_element(By.XPATH, self.input_audio_xpath).send_keys(self.upload_audio)
 
     def click_save(self):
         self.driver.find_element(By.XPATH, self.span_save_xpath).click()
@@ -68,7 +70,7 @@ class RecipesPage:
         self.driver.find_element(By.XPATH, self.span_choose_image_xpath).click()
         time.sleep(3)
         # Set the file path of the AutoIT script
-        autoit_script = "C:\\Users\\Ishadi\\Pictures\\3rd eye\\Test_Smoothies.png"
+        autoit_script = self.edit_upload_image
         time.sleep(1)
         pyautogui.typewrite(autoit_script)
         pyautogui.press("enter")

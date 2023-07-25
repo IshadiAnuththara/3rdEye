@@ -80,13 +80,12 @@ class TestBanners:
     def test_close_banners(self, setup):
         self.driver = setup
         self.driver.get(self.base_url)
-        driver = self.driver
 
         # Login
 
-        lp = LoginPage(driver)
-        lp.set_username(self.username)
-        lp.set_password(self.password)
+        self.lp = LoginPage(self.driver)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
         self.lp.click_login()
         time.sleep(4)
@@ -112,7 +111,7 @@ class TestBanners:
             assert True
             self.logger.info("********* Close banners Test Passed *********")
         else:
-            self.driver.save_screenshot(self.screenshot + "test_closeBanners_scr.png")  
+            self.driver.save_screenshot(self.screenshot + "test_closeBanners_scr.png")  # Screenshot
             self.logger.error("********* Close banners Test Failed ************")
             assert False
         self.driver.close()
@@ -224,7 +223,7 @@ class TestBanners:
             assert True
             self.logger.info("********* Delete Banner Test Passed *********")
         else:
-            self.driver.save_screenshot(self.screenshot + "test_deleteBanner_scr.png")
+            self.driver.save_screenshot(self.screenshot + "test_deleteBanner_scr.png")  
             self.logger.error("********* Delete Banner Test Failed ************")
             assert False
         self.driver.close()

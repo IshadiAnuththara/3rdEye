@@ -21,10 +21,10 @@ class TestLogin:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text

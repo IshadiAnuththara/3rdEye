@@ -22,21 +22,21 @@ class Test_AccessUserRole:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
         self.ur = UserPage(self.driver)
-        self.ur.clickUser()
+        self.ur.click_user()
         time.sleep(3)
 
         # Access User Role
 
-        self.ur.clickUserRole()
+        self.ur.click_user_role()
 
         time.sleep(4)
         self.driver.close()
@@ -48,38 +48,38 @@ class Test_AccessUserRole:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
         self.ur = UserPage(self.driver)
-        self.ur.clickUser()
+        self.ur.click_user()
         time.sleep(3)
 
         # Access User Role
 
-        self.ur.clickUserRole()
+        self.ur.click_user_role()
 
         # Add new User Role
-        self.ur.clickAddUserRole()
+        self.ur.click_add_user_role()
         time.sleep(3)
-        self.ur.setRole("Test User")
+        self.ur.set_role("Test User")
         time.sleep(3)
-        self.ur.clickPermission()
+        self.ur.click_permission()
         time.sleep(2)
-        self.ur.clickPermission_UserManagement()
+        self.ur.click_permission_user_management()
         time.sleep(2)
-        self.ur.clickPermission_Recipies()
+        self.ur.click_permission_recipies()
         time.sleep(2)
-        self.ur.clickPermission_EyeDonations()
+        self.ur.click_permission_eye_donations()
         time.sleep(2)
-        self.ur.clickPermission_Banners()
+        self.ur.click_permission_banners()
         time.sleep(2)
-        self.ur.clickSave()
+        self.ur.click_save()
 
         time.sleep(5)
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -100,34 +100,34 @@ class Test_AccessUserRole:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
         self.ur = UserPage(self.driver)
-        self.ur.clickUser()
+        self.ur.click_user()
         time.sleep(3)
 
         # Access User Role
 
-        self.ur.clickUserRole()
+        self.ur.click_user_role()
         time.sleep(3)
 
         # Edit User Role
 
-        self.ur.clickEdit()
+        self.ur.click_edit()
         time.sleep(3)
-        self.ur.editRoleName("Testing")
+        self.ur.edit_role_name("Testing")
         time.sleep(3)
-        self.ur.removePermission_UserManagement()
+        self.ur.remove_permission_user_management()
         time.sleep(3)
-        self.ur.removePermission_Recipies()
+        self.ur.remove_permission_recipies()
         time.sleep(3)
-        self.ur.clickSave()
+        self.ur.click_save()
 
         time.sleep(5)
         self.msg = self.driver.find_element(By.XPATH, self.notification).text

@@ -9,12 +9,12 @@ class LoginPage:
     def __init__(self, driver):
         self.driver = driver
 
-    def setUsername(self, username):
+    def set_username(self, username):
         self.driver.find_element(By.XPATH, self.input_username_xpath).send_keys(username)
 
-    def setPassword(self, password):
+    def set_password(self, password):
         self.driver.find_element(By.XPATH, self.input_password_xpath).send_keys(password)
 
-    def clickLogin(self):
+    def click_login(self):
         self.driver.find_element(By.XPATH, self.button_login_xpath).click()
 

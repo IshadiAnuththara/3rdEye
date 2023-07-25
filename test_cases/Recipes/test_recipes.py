@@ -27,16 +27,16 @@ class TestRecipes:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(5)
 
         # Access Recipes
 
         self.rp = RecipesPage(self.driver)
-        self.rp.clickRecipies()
+        self.rp.click_recipies()
         time.sleep(3)
         self.driver.close()
 
@@ -47,31 +47,31 @@ class TestRecipes:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(5)
 
         # Access Recipes
 
         self.rp = RecipesPage(self.driver)
-        self.rp.clickRecipies()
+        self.rp.click_recipies()
         time.sleep(3)
 
         # Add Recipes
 
-        self.rp.clickAddRecipies()
+        self.rp.click_add_recipies()
         time.sleep(3)
-        self.rp.setName(self.name)
+        self.rp.set_name(self.name)
         time.sleep(3)
-        self.rp.setDescription(self.desc)
+        self.rp.set_description(self.desc)
         time.sleep(3)
-        self.rp.chooseImage()
+        self.rp.choose_image()
         time.sleep(3)
-        self.rp.addAudio()
+        self.rp.add_audio()
         time.sleep(3)
-        self.rp.clickSave()
+        self.rp.click_save()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -93,25 +93,25 @@ class TestRecipes:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(5)
 
         # Access Recipes
 
         self.rp = RecipesPage(self.driver)
-        self.rp.clickRecipies()
+        self.rp.click_recipies()
         time.sleep(3)
 
         # Edit Recipes
 
-        self.rp.clickEdit()
+        self.rp.click_edit()
         time.sleep(3)
-        self.rp.editImage()
+        self.rp.edit_image()
         time.sleep(3)
-        self.rp.clickSave()
+        self.rp.click_save()
 
         time.sleep(5)
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -133,23 +133,23 @@ class TestRecipes:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(5)
 
         # Access Recipes
 
         self.rp = RecipesPage(self.driver)
-        self.rp.clickRecipies()
+        self.rp.click_recipies()
         time.sleep(3)
 
         # Search Recipes
 
-        self.rp.searchRecipies(self.search_recipe)
+        self.rp.search_recipies(self.search_recipe)
         time.sleep(3)
-        self.rp.clickRefresh()
+        self.rp.click_refresh()
         time.sleep(5)
         self.driver.close()
 
@@ -160,21 +160,21 @@ class TestRecipes:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(5)
 
         # Access Recipes
 
         self.rp = RecipesPage(self.driver)
-        self.rp.clickRecipies()
+        self.rp.click_recipies()
         time.sleep(3)
 
         # Delete Recipes
 
-        self.rp.clickDelete()
+        self.rp.click_delete()
 
         time.sleep(5)
         self.msg = self.driver.find_element(By.XPATH, self.notification).text

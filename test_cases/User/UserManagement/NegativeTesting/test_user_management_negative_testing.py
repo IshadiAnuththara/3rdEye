@@ -22,28 +22,28 @@ class TestUserManagementNegativeTesting:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
-        self.userManagement = UserPage(self.driver)
-        self.userManagement.clickUser()
+        self.user_management = UserPage(self.driver)
+        self.user_management.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.userManagement.clickUserManagement()
+        self.user_management.click_user_management()
         time.sleep(3)
 
         # Without filling any field
 
-        self.userManagement.clickAddMember()
+        self.user_management.click_add_member()
         time.sleep(2)
-        self.userManagement.clickSave_addMember()
+        self.user_management.click_save_add_member()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -65,30 +65,30 @@ class TestUserManagementNegativeTesting:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
-        self.userManagement = UserPage(self.driver)
-        self.userManagement.clickUser()
+        self.user_management = UserPage(self.driver)
+        self.user_management.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.userManagement.clickUserManagement()
+        self.user_management.click_user_management()
         time.sleep(3)
 
         # Add Member
 
-        self.userManagement.clickAddMember()
+        self.user_management.click_add_member()
         time.sleep(2)
-        self.userManagement.setEmail("lamax73497@extemer.com")
+        self.user_management.set_email("lamax73497@extemer.com")
         time.sleep(3)
-        self.userManagement.clickSave_addMember()
+        self.user_management.click_save_add_member()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -109,34 +109,34 @@ class TestUserManagementNegativeTesting:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
-        self.userManagement = UserPage(self.driver)
-        self.userManagement.clickUser()
+        self.user_management = UserPage(self.driver)
+        self.user_management.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.userManagement.clickUserManagement()
+        self.user_management.click_user_management()
         time.sleep(3)
 
         # Add Member
 
-        self.userManagement.clickAddMember()
+        self.user_management.click_add_member()
         time.sleep(2)
-        self.userManagement.setEmail("miwabog446@fitwl.com")
+        self.user_management.set_email("miwabog446@fitwl.com")
         time.sleep(3)
-        self.userManagement.setFirstName("Brielle")
+        self.user_management.set_first_name("Brielle")
         time.sleep(3)
-        self.userManagement.setLastName("Roy")
+        self.user_management.set_last_name("Roy")
         time.sleep(3)
-        self.userManagement.clickSave_addMember()
+        self.user_management.click_save_add_member()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -160,30 +160,30 @@ class TestUserManagementNegativeTesting:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
-        self.userManagement = UserPage(self.driver)
-        self.userManagement.clickUser()
+        self.user_management = UserPage(self.driver)
+        self.user_management.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.userManagement.clickUserManagement()
+        self.user_management.click_user_management()
         time.sleep(3)
 
         # Add Member
 
-        self.userManagement.clickAddMember()
+        self.user_management.click_add_member()
         time.sleep(2)
-        self.userManagement.setFirstName("Sarah")
+        self.user_management.set_first_name("Sarah")
         time.sleep(3)
-        self.userManagement.clickSave_addMember()
+        self.user_management.click_save_add_member()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -205,30 +205,30 @@ class TestUserManagementNegativeTesting:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
-        self.userManagement = UserPage(self.driver)
-        self.userManagement.clickUser()
+        self.user_management = UserPage(self.driver)
+        self.user_management.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.userManagement.clickUserManagement()
+        self.user_management.click_user_management()
         time.sleep(3)
 
         # Add Member
 
-        self.userManagement.clickAddMember()
+        self.user_management.click_add_member()
         time.sleep(2)
-        self.userManagement.setLastName("Price")
+        self.user_management.set_last_name("Price")
         time.sleep(3)
-        self.userManagement.clickSave_addMember()
+        self.user_management.click_save_add_member()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -250,30 +250,30 @@ class TestUserManagementNegativeTesting:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
-        self.userManagement = UserPage(self.driver)
-        self.userManagement.clickUser()
+        self.user_management = UserPage(self.driver)
+        self.user_management.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.userManagement.clickUserManagement()
+        self.user_management.click_user_management()
         time.sleep(3)
 
         # Add Member
 
-        self.userManagement.clickAddMember()
+        self.user_management.click_add_member()
         time.sleep(2)
-        self.userManagement.clickGeneratePassword()
+        self.user_management.click_generate_password()
         time.sleep(3)
-        self.userManagement.clickSave_addMember()
+        self.user_management.click_save_add_member()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -295,30 +295,30 @@ class TestUserManagementNegativeTesting:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
-        self.userManagement = UserPage(self.driver)
-        self.userManagement.clickUser()
+        self.user_management = UserPage(self.driver)
+        self.user_management.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.userManagement.clickUserManagement()
+        self.user_management.click_user_management()
         time.sleep(3)
 
         # Add Member
 
-        self.userManagement.clickAddMember()
+        self.user_management.click_add_member()
         time.sleep(2)
-        self.userManagement.setUsername("testUser")
+        self.user_management.set_username("testUser")
         time.sleep(3)
-        self.userManagement.clickSave_addMember()
+        self.user_management.click_save_add_member()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -339,32 +339,32 @@ class TestUserManagementNegativeTesting:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
-        self.userManagement = UserPage(self.driver)
-        self.userManagement.clickUser()
+        self.user_management = UserPage(self.driver)
+        self.user_management.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.userManagement.clickUserManagement()
+        self.user_management.click_user_management()
         time.sleep(3)
 
         # Add Member
 
-        self.userManagement.clickAddMember()
+        self.user_management.click_add_member()
         time.sleep(2)
-        self.userManagement.setUsername("testUser")
+        self.user_management.set_username("testUser")
         time.sleep(3)
-        self.userManagement.clickGeneratePassword()
+        self.user_management.click_generate_password()
         time.sleep(3)
-        self.userManagement.clickSave_addMember()
+        self.user_management.click_save_add_member()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -387,30 +387,30 @@ class TestUserManagementNegativeTesting:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
-        self.userManagement = UserPage(self.driver)
-        self.userManagement.clickUser()
+        self.user_management = UserPage(self.driver)
+        self.user_management.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.userManagement.clickUserManagement()
+        self.user_management.click_user_management()
         time.sleep(3)
 
         # Add Member
 
-        self.userManagement.clickAddMember()
+        self.user_management.click_add_member()
         time.sleep(2)
-        self.userManagement.clickActiveStatus()
+        self.user_management.click_active_status()
         time.sleep(3)
-        self.userManagement.clickSave_addMember()
+        self.user_management.click_save_add_member()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -432,30 +432,30 @@ class TestUserManagementNegativeTesting:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
-        self.userManagement = UserPage(self.driver)
-        self.userManagement.clickUser()
+        self.user_management = UserPage(self.driver)
+        self.user_management.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.userManagement.clickUserManagement()
+        self.user_management.click_user_management()
         time.sleep(3)
 
         # Add Member
 
-        self.userManagement.clickAddMember()
+        self.user_management.click_add_member()
         time.sleep(2)
-        self.userManagement.clickRole()
+        self.user_management.click_role()
         time.sleep(3)
-        self.userManagement.clickSave_addMember()
+        self.user_management.click_save_add_member()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -476,40 +476,40 @@ class TestUserManagementNegativeTesting:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
-        self.userManagement = UserPage(self.driver)
-        self.userManagement.clickUser()
+        self.user_management = UserPage(self.driver)
+        self.user_management.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.userManagement.clickUserManagement()
+        self.user_management.click_user_management()
         time.sleep(3)
 
         # Add Member
 
-        self.userManagement.clickAddMember()
+        self.user_management.click_add_member()
         time.sleep(2)
-        self.userManagement.setUsername("testUser")
+        self.user_management.set_username("testUser")
         time.sleep(3)
-        self.userManagement.clickGeneratePassword()
+        self.user_management.click_generate_password()
         time.sleep(5)
-        self.userManagement.setEmail("miwabog446@fitwl.com")
+        self.user_management.set_email("miwabog446@fitwl.com")
         time.sleep(3)
-        self.userManagement.setFirstName("Brielle")
+        self.user_management.set_first_name("Brielle")
         time.sleep(3)
-        self.userManagement.setLastName("Roy")
+        self.user_management.set_last_name("Roy")
         time.sleep(3)
-        self.userManagement.clickRole()
+        self.user_management.click_role()
         time.sleep(3)
-        self.userManagement.clickSave_addMember()
+        self.user_management.click_save_add_member()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -531,38 +531,38 @@ class TestUserManagementNegativeTesting:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
-        self.userManagement = UserPage(self.driver)
-        self.userManagement.clickUser()
+        self.user_management = UserPage(self.driver)
+        self.user_management.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.userManagement.clickUserManagement()
+        self.user_management.click_user_management()
         time.sleep(3)
 
         # Add Member
 
-        self.userManagement.clickAddMember()
+        self.user_management.click_add_member()
         time.sleep(2)
-        self.userManagement.setUsername("testUser")
+        self.user_management.set_username("testUser")
         time.sleep(3)
-        self.userManagement.clickGeneratePassword()
+        self.user_management.click_generate_password()
         time.sleep(5)
-        self.userManagement.setEmail("miwabog446@fitwl.com")
+        self.user_management.set_email("miwabog446@fitwl.com")
         time.sleep(3)
-        self.userManagement.setFirstName("Brielle")
+        self.user_management.set_first_name("Brielle")
         time.sleep(3)
-        self.userManagement.setLastName("Roy")
+        self.user_management.set_last_name("Roy")
         time.sleep(3)
-        self.userManagement.clickSave_addMember()
+        self.user_management.click_save_add_member()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -585,42 +585,42 @@ class TestUserManagementNegativeTesting:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
-        self.userManagement = UserPage(self.driver)
-        self.userManagement.clickUser()
+        self.user_management = UserPage(self.driver)
+        self.user_management.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.userManagement.clickUserManagement()
+        self.user_management.click_user_management()
         time.sleep(3)
 
         # Add Member
 
-        self.userManagement.clickAddMember()
+        self.user_management.click_add_member()
         time.sleep(2)
-        self.userManagement.setUsername("TestUser")
+        self.user_management.set_username("TestUser")
         time.sleep(3)
-        self.userManagement.clickGeneratePassword()
+        self.user_management.click_generate_password()
         time.sleep(5)
-        self.userManagement.setEmail("miwabog446@fitwl.com")
+        self.user_management.set_email("miwabog446@fitwl.com")
         time.sleep(3)
-        self.userManagement.setFirstName("Brielle")
+        self.user_management.set_first_name("Brielle")
         time.sleep(3)
-        self.userManagement.setLastName("Roy")
+        self.user_management.set_last_name("Roy")
         time.sleep(3)
-        self.userManagement.clickRole()
+        self.user_management.click_role()
         time.sleep(3)
-        self.userManagement.clickActiveStatus()
+        self.user_management.click_active_status()
         time.sleep(3)
-        self.userManagement.clickSave_addMember()
+        self.user_management.click_save_add_member()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -642,42 +642,42 @@ class TestUserManagementNegativeTesting:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
-        self.userManagement = UserPage(self.driver)
-        self.userManagement.clickUser()
+        self.user_management = UserPage(self.driver)
+        self.user_management.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.userManagement.clickUserManagement()
+        self.user_management.click_user_management()
         time.sleep(3)
 
         # Add Member
 
-        self.userManagement.clickAddMember()
+        self.user_management.click_add_member()
         time.sleep(2)
-        self.userManagement.setUsername("TestUser")
+        self.user_management.set_username("TestUser")
         time.sleep(3)
-        self.userManagement.clickGeneratePassword()
+        self.user_management.click_generate_password()
         time.sleep(5)
-        self.userManagement.setEmail("sam.ue.le.r.utte.r.4.14@gmail.com")
+        self.user_management.set_email("sam.ue.le.r.utte.r.4.14@gmail.com")
         time.sleep(3)
-        self.userManagement.setFirstName("Brielle")
+        self.user_management.set_first_name("Brielle")
         time.sleep(3)
-        self.userManagement.setLastName("Roy")
+        self.user_management.set_last_name("Roy")
         time.sleep(3)
-        self.userManagement.clickRole()
+        self.user_management.click_role()
         time.sleep(3)
-        self.userManagement.clickActiveStatus()
+        self.user_management.click_active_status()
         time.sleep(3)
-        self.userManagement.clickSave_addMember()
+        self.user_management.click_save_add_member()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -699,42 +699,42 @@ class TestUserManagementNegativeTesting:
         # Login
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(2)
 
         # Access User
 
-        self.userManagement = UserPage(self.driver)
-        self.userManagement.clickUser()
+        self.user_management = UserPage(self.driver)
+        self.user_management.click_user()
         time.sleep(3)
 
         # Access User Management
 
-        self.userManagement.clickUserManagement()
+        self.user_management.click_user_management()
         time.sleep(3)
 
         # Add Member
 
-        self.userManagement.clickAddMember()
+        self.user_management.click_add_member()
         time.sleep(2)
-        self.userManagement.setUsername("TestUser007")
+        self.user_management.set_username("TestUser007")
         time.sleep(3)
-        self.userManagement.clickGeneratePassword()
+        self.user_management.click_generate_password()
         time.sleep(5)
-        self.userManagement.setEmail("castielv.i.nc.en.t.36.9@gmail@gmail.com")
+        self.user_management.set_email("castielv.i.nc.en.t.36.9@gmail@gmail.com")
         time.sleep(3)
-        self.userManagement.setFirstName("Jennie")
+        self.user_management.set_first_name("Jennie")
         time.sleep(3)
-        self.userManagement.setLastName("Medina")
+        self.user_management.set_last_name("Medina")
         time.sleep(3)
-        self.userManagement.clickRole()
+        self.user_management.click_role()
         time.sleep(3)
-        self.userManagement.clickActiveStatus()
+        self.user_management.click_active_status()
         time.sleep(3)
-        self.userManagement.clickSave_addMember()
+        self.user_management.click_save_add_member()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text

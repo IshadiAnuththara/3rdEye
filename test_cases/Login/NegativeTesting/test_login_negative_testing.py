@@ -23,10 +23,10 @@ class TestLoginNegativeTesting:
         # Login with invalid username and password
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.invalid_username)
-        self.lp.setPassword(self.invalid_password)
+        self.lp.set_username(self.invalid_username)
+        self.lp.set_password(self.invalid_password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
 
         time.sleep(5)
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -47,10 +47,10 @@ class TestLoginNegativeTesting:
         # Login with valid username and invalid password
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.invalid_password)
+        self.lp.set_username(self.username)
+        self.lp.set_password(self.invalid_password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
         time.sleep(5)
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -72,10 +72,10 @@ class TestLoginNegativeTesting:
         # Login with invalid username and valid password
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.invalid_username)
-        self.lp.setPassword(self.password)
+        self.lp.set_username(self.invalid_username)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
 
         time.sleep(5)
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -96,10 +96,10 @@ class TestLoginNegativeTesting:
         # Login with no inputs
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername("")
-        self.lp.setPassword("")
+        self.lp.set_username("")
+        self.lp.set_password("")
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
 
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
         print(self.msg)
@@ -119,9 +119,9 @@ class TestLoginNegativeTesting:
         # Login with only username
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
+        self.lp.set_username(self.username)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
 
         time.sleep(5)
         self.msg = self.driver.find_element(By.XPATH, self.notification).text
@@ -142,9 +142,9 @@ class TestLoginNegativeTesting:
         # Login with only password
 
         self.lp = LoginPage(self.driver)
-        self.lp.setPassword(self.password)
+        self.lp.set_password(self.password)
         time.sleep(3)
-        self.lp.clickLogin()
+        self.lp.click_login()
 
         time.sleep(5)
         self.msg = self.driver.find_element(By.XPATH, self.notification).text

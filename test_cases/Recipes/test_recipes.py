@@ -1,7 +1,6 @@
 import pytest
 import self as self
 from pageObjects.LoginPage import LoginPage
-from test_cases.base_test import BaseTest
 from test_data.recipes_test_data import RecipesTestData
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
@@ -10,7 +9,33 @@ from utilities.test_utils import sleep, MEDIUM_WAIT, SHORT_WAIT, perform_add_new
     perform_edit_recipe_assertion, perform_delete_recipe_assertion
 
 
-class TestRecipes(BaseTest):
+class TestRecipes:
+    base_url = ReadConfig.get_application_url(self)
+    username = ReadConfig.get_username()
+    password = ReadConfig.get_password()
+    logger = LogGen.loggen()
+
+    @pytest.fixture(autouse=True)
+    def class_setup(self, setup):
+
+        # Initialize the WebDriver and navigate to the application
+        self.driver = setup
+        self.driver.get(self.base_url)
+        self.driver.maximize_window()
+
+        # Initialize the LoginPage object and perform login
+        self.login_page = LoginPage(self.driver)
+        self.login_page.login_to_application(self.username, self.password)
+        sleep(MEDIUM_WAIT)
+
+        # Initialize the Recipes Page object
+        self.recipes = RecipesPage(self.driver)
+        sleep(SHORT_WAIT)
+        self.recipes.click_recipies()
+        sleep(MEDIUM_WAIT)
+        yield
+        self.driver.close()
+
     def test_add_recipes(self):
         self.recipes.add_new_recipe(RecipesTestData.name, RecipesTestData.desc)
 

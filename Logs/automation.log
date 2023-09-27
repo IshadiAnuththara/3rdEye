@@ -1491,3 +1491,45 @@
 2023-06-29 16:31:09,271 - root - ERROR - ********* Add Recipes - Test Failed ************
 2023-06-29 16:37:03,826 - root - ERROR - ********* Add Recipes - Test Failed ************
 2023-06-29 16:49:33,427 - root - INFO - ********* Login with valid credentials Test Passed *********
+2023-09-19 10:07:29,461 - selenium.webdriver.common.selenium_manager - WARNING - Error getting version of chromedriver 117. Retrying with chromedriver 116 (attempt 1/5)
+2023-09-19 10:07:29,461 - selenium.webdriver.common.selenium_manager - WARNING - Error getting version of chromedriver 116. Retrying with chromedriver 115 (attempt 2/5)
+2023-09-19 10:07:29,461 - selenium.webdriver.common.selenium_manager - WARNING - Error getting version of chromedriver 115. Retrying with chromedriver 114 (attempt 3/5)
+2023-09-19 11:18:48,409 - root - INFO - ********* Login Test Passed *********
+2023-09-19 11:20:47,964 - root - INFO - ********* Login with valid username and invalid password - Test Passed *********
+2023-09-19 11:21:02,863 - root - INFO - ********* Login with invalid username and valid password - Test Passed *********
+2023-09-19 11:21:17,361 - root - INFO - ********* Login with invalid username and invalid password - Test Passed *********
+2023-09-19 11:23:42,539 - root - INFO - ********* Login with invalid username and valid password - Test Passed *********
+2023-09-19 11:26:20,334 - root - INFO - ********* Login with valid username and invalid password - Test Passed *********
+2023-09-19 11:26:38,597 - root - INFO - ********* Login with invalid username and valid password - Test Passed *********
+2023-09-19 11:26:58,147 - root - INFO - ********* Login with invalid username and invalid password - Test Passed *********
+2023-09-19 11:27:21,229 - root - INFO - ********* Login without username and password - Test Passed *********
+2023-09-19 15:28:03,945 - root - INFO - ********* Add Banner - Test Passed *********
+2023-09-19 15:36:22,275 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001783A090610>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/91d7aea1-7b76-4f71-a176-a74243eb5282/window
+2023-09-19 15:36:26,332 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001783AB0F1C0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/91d7aea1-7b76-4f71-a176-a74243eb5282/window
+2023-09-19 15:36:30,421 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001783AAAADF0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/91d7aea1-7b76-4f71-a176-a74243eb5282/window
+2023-09-19 15:38:09,286 - root - INFO - ********* Close banners - Test Passed *********
+2023-09-19 15:39:23,758 - root - INFO - ********* Edit banners - Test Passed *********
+2023-09-19 15:40:13,272 - root - ERROR - ********* Edit banners -  - Test Failed *********
+2023-09-19 15:42:27,619 - root - ERROR - ********* Show Banners -  - Test Failed *********
+2023-09-19 15:45:17,715 - root - ERROR - ********* Delete Banners -  - Test Failed *********
+2023-09-19 15:50:58,558 - root - ERROR - ********* Delete Banners -  - Test Failed *********
+2023-09-19 15:54:14,135 - root - INFO - ********* Delete Banners - Test Passed *********
+2023-09-27 13:22:58,951 - selenium.webdriver.common.selenium_manager - WARNING - Error getting version of chromedriver 117. Retrying with chromedriver 116 (attempt 1/5)
+2023-09-27 13:22:58,951 - selenium.webdriver.common.selenium_manager - WARNING - Error getting version of chromedriver 116. Retrying with chromedriver 115 (attempt 2/5)
+2023-09-27 13:22:58,951 - selenium.webdriver.common.selenium_manager - WARNING - Error getting version of chromedriver 115. Retrying with chromedriver 114 (attempt 3/5)
+2023-09-27 13:31:27,487 - WDM - INFO - ====== WebDriver manager ======
+2023-09-27 13:31:31,241 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2023-09-27 13:31:31,526 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2023-09-27 13:31:31,698 - WDM - INFO - There is no [win64] chromedriver "117.0.5938.92" for browser google-chrome "117.0.5938" in cache
+2023-09-27 13:31:31,698 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2023-09-27 13:31:32,100 - WDM - INFO - WebDriver version 117.0.5938.92 selected
+2023-09-27 13:31:32,100 - WDM - INFO - Modern chrome version https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/117.0.5938.92/win32/chromedriver-win32.zip
+2023-09-27 13:31:32,100 - WDM - INFO - About to download new driver from https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/117.0.5938.92/win32/chromedriver-win32.zip
+2023-09-27 13:31:32,381 - WDM - INFO - Driver downloading response is 200
+2023-09-27 13:31:33,275 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2023-09-27 13:31:33,597 - WDM - INFO - Driver has been saved in cache [C:\Users\Ishadi\.wdm\drivers\chromedriver\win64\117.0.5938.92]
+2023-09-27 14:31:54,823 - WDM - INFO - ====== WebDriver manager ======
+2023-09-27 14:31:57,400 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2023-09-27 14:31:57,739 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2023-09-27 14:31:57,910 - WDM - INFO - Driver [C:\Users\Ishadi\.wdm\drivers\chromedriver\win64\117.0.5938.92\chromedriver-win32/chromedriver.exe] found in cache
+2023-09-27 14:43:10,957 - root - INFO - ********* Logout -  Test Passed *********

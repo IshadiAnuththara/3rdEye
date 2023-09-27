@@ -1,10 +1,11 @@
-import time
-from selenium.webdriver.common.by import By
+import pytest
 import self as self
-from page_objects.LoginPage import LoginPage
-from page_objects.UserPage import UserPage
+from pageObjects.LoginPage import LoginPage
+from pageObjects.UserPage import UserPage
+from test_data.user_test_data import UserTestData
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
+from utilities.test_utils import sleep, MEDIUM_WAIT, SHORT_WAIT, perform_add_member_assertion
 
 
 class TestUserManagement:
@@ -12,126 +13,39 @@ class TestUserManagement:
     username = ReadConfig.get_username()
     password = ReadConfig.get_password()
     logger = LogGen.loggen()
-    name = "TestUser007"
-    email = "mar.is.saa.l.d.a0@gmail.com"
-    first_name = "Brielle"
-    last_name = "Roy"
-    notification = "//div[@class='notifyjs-corner']"
-    screenshot = ".\\Screenshots\\"
-    search_name = "superAdmin"
 
-    def test_access_user_management(self, setup):
+    @pytest.fixture(autouse=True)
+    def class_setup(self, setup):
+        # Initialize the WebDriver and navigate to the application
         self.driver = setup
         self.driver.get(self.base_url)
+        self.driver.maximize_window()
 
-        # Login
+        # Initialize the LoginPage object and perform login
+        self.login_page = LoginPage(self.driver)
+        self.login_page.login_to_application(self.username, self.password)
+        sleep(MEDIUM_WAIT)
 
-        self.lp = LoginPage(self.driver)
-        self.lp.set_username(self.username)
-        self.lp.set_password(self.password)
-        time.sleep(3)
-        self.lp.click_login()
-        time.sleep(2)
-
-        # Access User
-
-        self.um = UserPage(self.driver)
-        self.um.click_user()
-        time.sleep(3)
-
-        # Access User Management
-
-        self.um.click_user_management()
-
-        time.sleep(4)
+        # Initialize the Announcement Page object
+        self.user_management = UserPage(self.driver)
+        sleep(SHORT_WAIT)
+        self.user_management.click_user()
+        sleep(SHORT_WAIT)
+        self.user_management.click_user_management()
+        sleep(MEDIUM_WAIT)
+        yield
         self.driver.close()
 
-    def test_add_member(self, setup):
-        self.driver = setup
-        self.driver.get(self.base_url)
+    def test_add_member(self):
+        self.user_management.add_member(UserTestData.name,
+                                        UserTestData.email,
+                                        UserTestData.first_name,
+                                        UserTestData.last_name)
+        # Define the expected success message
+        success_message = 'Successfully created.'
+        sleep(SHORT_WAIT)
+        # Call the assertion function to validate new announcement creation
+        perform_add_member_assertion(self.driver, self.user_management, self.logger, success_message)
 
-        # Login
-
-        self.lp = LoginPage(self.driver)
-        self.lp.set_username(self.username)
-        self.lp.set_password(self.password)
-        time.sleep(3)
-        self.lp.click_login()
-        time.sleep(2)
-
-        # Access User
-
-        self.userManagement = UserPage(self.driver)
-        self.userManagement.click_user()
-        time.sleep(3)
-
-        # Access User Management
-
-        self.userManagement.click_user_management()
-        time.sleep(3)
-
-        # Add Member
-
-        self.userManagement.click_add_member()
-        time.sleep(2)
-        self.userManagement.set_username(self.name)
-        time.sleep(3)
-        self.userManagement.click_generate_password()
-        time.sleep(5)
-        self.userManagement.set_email(self.email)
-        time.sleep(3)
-        self.userManagement.set_first_name(self.first_name)
-        time.sleep(3)
-        self.userManagement.set_last_name(self.last_name)
-        time.sleep(3)
-        self.userManagement.click_role()
-        time.sleep(3)
-        self.userManagement.click_active_status()
-        time.sleep(3)
-        self.userManagement.click_save_add_member()
-        time.sleep(5)
-
-        self.msg = self.driver.find_element(By.XPATH, self.notification).text
-        print(self.msg)
-        if 'Successfully created.' in self.msg:
-            assert True
-            self.logger.info("********* Add Member Test Passed *********")
-        else:
-            self.driver.save_screenshot(self.screenshot + "test_addMember_scr.png")
-            self.logger.error("********* Add Member Test Failed ************")
-            assert False
-        self.driver.close()
-
-    def test_search_user(self, setup):
-        self.driver = setup
-        self.driver.get(self.base_url)
-
-        # Login
-
-        self.lp = LoginPage(self.driver)
-        self.lp.set_username(self.username)
-        self.lp.set_password(self.password)
-        time.sleep(3)
-        self.lp.click_login()
-        time.sleep(2)
-
-        # Access User
-
-        self.userManagement = UserPage(self.driver)
-        self.userManagement.click_user()
-        time.sleep(3)
-
-        # Access User Management
-
-        self.userManagement.click_user_management()
-        time.sleep(3)
-
-        # Search User
-
-        self.userManagement.set_search(self.search_name)
-        time.sleep(2)
-        self.userManagement.click_search()
-        time.sleep(3)
-        self.userManagement.click_refresh()
-        time.sleep(4)
-        self.driver.close()
+    def test_search_user(self):
+        self.user_management.search_member(UserTestData.search_name)

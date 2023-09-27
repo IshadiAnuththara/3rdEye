@@ -1,0 +1,12 @@
+class UserTestData:
+    name = "TestUser007"
+    email = "mar.is.saa.l.d.a0@gmail.com"
+    first_name = "Brielle"
+    last_name = "Roy"
+    search_name = "superAdmin"
+    negative_testing_data_email = "miwabog446@fitwl.com"
+    negative_testing_data_first_name = "Brielle"
+    negative_testing_data_last_name = "Roy"
+    negative_testing_data_username = "TestUser007"
+    role = "Test User"
+    edit_role_name = "Testing"

@@ -1,5 +1,7 @@
+import self
 from selenium import webdriver
 import pytest
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 @pytest.fixture()
@@ -11,6 +13,7 @@ def setup(browser):
         driver.maximize_window()
     elif browser == "firefox":
         driver = webdriver.Firefox()
+        driver.maximize_window()
     return driver
 
 

@@ -1,9 +1,8 @@
-import time
-from selenium.webdriver.common.by import By
 import self as self
-from page_objects.LoginPage import LoginPage
+from pageObjects.LoginPage import LoginPage
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
+from utilities.test_utils import sleep, SHORT_WAIT, perform_login_assertion
 
 
 class TestLogin:
@@ -11,31 +10,17 @@ class TestLogin:
     username = ReadConfig.get_username()
     password = ReadConfig.get_password()
     logger = LogGen.loggen()
-    notification = "//div[@class='notifyjs-corner']"
-    screenshot = ".\\Screenshots\\"
 
-    def test_login(self, setup):
+    def test_login_with_valid_credentials(self, setup):
         self.driver = setup
         self.driver.get(self.base_url)
+        self.login_page = LoginPage(self.driver)
+        self.login_page.login_to_application(self.username, self.password)
+        sleep(SHORT_WAIT)
 
-        # Login
-
-        self.lp = LoginPage(self.driver)
-        self.lp.set_username(self.username)
-        self.lp.set_password(self.password)
-        time.sleep(3)
-        self.lp.click_login()
-        time.sleep(5)
-
-        self.msg = self.driver.find_element(By.XPATH, self.notification).text
-
-        print(self.msg)
-        if 'Successfully logged in.' in self.msg:
-            assert True
-            self.logger.info("********* Login with valid credentials Test Passed *********")
-        else:
-            self.driver.save_screenshot(self.screenshot + "test_login_scr.png")
-            self.logger.error("********* Login with valid credentials Test Failed ************")
-            assert False
-
+        # Define the expected success message
+        success_message = 'Successfully logged in.'
+        # Call the assertion function to validate login
+        perform_login_assertion(self.driver, self.login_page, self.logger, success_message)
+        sleep(SHORT_WAIT)
         self.driver.close()

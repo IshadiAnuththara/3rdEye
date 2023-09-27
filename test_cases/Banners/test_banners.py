@@ -1,10 +1,12 @@
-import time
+import pytest
 import self as self
-from selenium.webdriver.common.by import By
-from page_objects.LoginPage import LoginPage
-from page_objects.BannersPage import BannersPage
+from pageObjects.LoginPage import LoginPage
+from pageObjects.BannersPage import BannersPage
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
+from utilities.test_utils import (sleep, MEDIUM_WAIT, SHORT_WAIT, perform_add_new_banner_assertion,
+                                  perform_close_banners_assertion, perform_edit_banners_assertion,
+                                  perform_show_banners_assertion, perform_delete_banners_assertion)
 
 
 class TestBanners:
@@ -12,219 +14,65 @@ class TestBanners:
     username = ReadConfig.get_username()
     password = ReadConfig.get_password()
     logger = LogGen.loggen()
-    notification = "//div[@class='notifyjs-corner']"
-    screenshot = ".\\Screenshots\\"
 
-    def test_access_banners(self, setup):
+    @pytest.fixture(autouse=True)
+    def class_setup(self, setup):
+
+        # Initialize the WebDriver and navigate to the application
         self.driver = setup
         self.driver.get(self.base_url)
+        self.driver.maximize_window()
 
-        # Login
+        # Initialize the Login Page object and perform login
+        self.login_page = LoginPage(self.driver)
+        self.login_page.login_to_application(self.username, self.password)
+        sleep(MEDIUM_WAIT)
 
-        self.lp = LoginPage(self.driver)
-        self.lp.set_username(self.username)
-        self.lp.set_password(self.password)
-        time.sleep(3)
-        self.lp.click_login()
-        time.sleep(4)
-
-        # Access Banners
-
+        # Initialize the Banners Page object
         self.banners = BannersPage(self.driver)
+        sleep(SHORT_WAIT)
         self.banners.click_banners()
-        time.sleep(5)
+        sleep(MEDIUM_WAIT)
+        yield
         self.driver.close()
 
-    def test_add_banners(self, setup):
-        self.driver = setup
-        self.driver.get(self.base_url)
+    def test_add_banners(self):
+        self.banners.add_new_banner()
+        # Define the expected success message
+        success_message = 'Successfully created.'
+        sleep(SHORT_WAIT)
+        # Call the assertion function to validate new banner creation
+        perform_add_new_banner_assertion(self.driver, self.banners, self.logger, success_message)
 
-        # Login
+    def test_close_banners(self):
+        self.banners.close_banners()
+        # Define the expected success message
+        success_message = 'Successfully deleted.'
+        sleep(SHORT_WAIT)
+        # Call the assertion function to validate close banners
+        perform_close_banners_assertion(self.driver, self.banners, self.logger, success_message)
 
-        self.lp = LoginPage(self.driver)
-        self.lp.set_username(self.username)
-        self.lp.set_password(self.password)
-        time.sleep(3)
-        self.lp.click_login()
-        time.sleep(4)
+    def test_edit_banners(self):
+        self.banners.edit_banners()
+        # Define the expected success message
+        success_message = 'Successfully updated'
+        sleep(SHORT_WAIT)
+        # Call the assertion function to validate edit banners
+        perform_edit_banners_assertion(self.driver, self.banners, self.logger, success_message)
 
-        # Access Banners
-
-        self.banners = BannersPage(self.driver)
-        self.banners.click_banners()
-
-        # Add Banner
-
-        self.banners.click_add_banner()
-        time.sleep(3)
-        self.banners.click_upload()
-        time.sleep(3)
-        self.banners.click_choose_image()
-        time.sleep(3)
-        self.banners.click_add()
-        time.sleep(3)
-        self.banners.click_save()
-        time.sleep(5)
-
-        self.msg = self.driver.find_element(By.XPATH, self.notification).text
-        print(self.msg)
-        if 'Successfully created.' in self.msg:
-            assert True
-            self.logger.info("********* Add Banner Test Passed *********")
-        else:
-            self.driver.save_screenshot(self.screenshot + "test_addBanner_scr.png")
-            self.logger.error("********* Add Banner Test Failed ************")
-            assert False
-        self.driver.close()
-
-    def test_close_banners(self, setup):
-        self.driver = setup
-        self.driver.get(self.base_url)
-        driver = self.driver
-
-        # Login
-
-        lp = LoginPage(driver)
-        lp.set_username(self.username)
-        lp.set_password(self.password)
-        time.sleep(3)
-        self.lp.click_login()
-        time.sleep(4)
-
-        # Access Banners
-
-        self.banners = BannersPage(self.driver)
-        self.banners.click_banners()
-        time.sleep(3)
-
-        # Close banners
-
-        self.banners.click_edit()
-        time.sleep(3)
-        self.banners.click_close()
-        time.sleep(3)
-        self.driver.switch_to.alert.accept()
-        time.sleep(5)
-        self.msg = self.driver.find_element(By.XPATH, self.notification).text
-
-        print(self.msg)
-        if 'Successfully deleted.' in self.msg:
-            assert True
-            self.logger.info("********* Close banners Test Passed *********")
-        else:
-            self.driver.save_screenshot(self.screenshot + "test_closeBanners_scr.png")  
-            self.logger.error("********* Close banners Test Failed ************")
-            assert False
-        self.driver.close()
-
-    def test_edit_banners(self, setup):
-        self.driver = setup
-        self.driver.get(self.base_url)
-
-        # Login
-
-        self.lp = LoginPage(self.driver)
-        self.lp.set_username(self.username)
-        self.lp.set_password(self.password)
-        time.sleep(3)
-        self.lp.click_login()
-        time.sleep(4)
-
-        # Access Banners
-
-        self.banners = BannersPage(self.driver)
-        self.banners.click_banners()
-        time.sleep(3)
-        # Edit Banner
-
-        self.banners.click_edit()
-        time.sleep(3)
-        self.banners.click_upload()
-        time.sleep(3)
-        self.banners.click_choose_image()
-        time.sleep(3)
-        self.banners.click_add()
-        time.sleep(3)
-        self.banners.click_save()
-        time.sleep(5)
-
-        self.msg = self.driver.find_element(By.XPATH, self.notification).text
-        print(self.msg)
-        if 'Successfully updated' in self.msg:
-            assert True
-            self.logger.info("********* Edit Banner Test Passed *********")
-        else:
-            self.driver.save_screenshot(self.screenshot + "test_editBanner_scr.png")
-            self.logger.error("********* Edit Banner Test Failed ************")
-            assert False
-        self.driver.close()
-
-    def test_show_banners(self, setup):
-        self.driver = setup
-        self.driver.get(self.base_url)
-
-        # Login
-
-        self.lp = LoginPage(self.driver)
-        self.lp.set_username(self.username)
-        self.lp.set_password(self.password)
-        time.sleep(3)
-        self.lp.click_login()
-        time.sleep(4)
-
-        # Access Banners
-
-        self.banners = BannersPage(self.driver)
-        self.banners.click_banners()
-        time.sleep(5)
-
-        # Show Banners
-
+    def test_show_banners(self):
         self.banners.click_checkbox()
-        time.sleep(5)
+        sleep(SHORT_WAIT)
+        # Define the expected success message
+        success_message = 'Successfully updated.'
+        sleep(SHORT_WAIT)
+        # Call the assertion function to validate show banners
+        perform_show_banners_assertion(self.driver, self.banners, self.logger, success_message)
 
-        self.msg = self.driver.find_element(By.XPATH, self.notification).text
-        print(self.msg)
-        if 'Successfully updated' in self.msg:
-            assert True
-            self.logger.info("********* Show Banner Test Passed *********")
-        else:
-            self.driver.save_screenshot(self.screenshot + "test_showBanner_scr.png")
-            self.logger.error("********* Show Banner Test Failed ************")
-            assert False
-        self.driver.close()
-
-    def test_delete_banners(self, setup):
-        self.driver = setup
-        self.driver.get(self.base_url)
-
-        # Login
-
-        self.lp = LoginPage(self.driver)
-        self.lp.set_username(self.username)
-        self.lp.set_password(self.password)
-        time.sleep(3)
-        self.lp.click_login()
-        time.sleep(4)
-
-        # Access Banners
-
-        self.banners = BannersPage(self.driver)
-        self.banners.click_banners()
-        time.sleep(3)
-
-        # Delete Banners
-
+    def test_delete_banners(self):
         self.banners.click_delete()
-        time.sleep(5)
-
-        self.msg = self.driver.find_element(By.XPATH, self.notification).text
-        print(self.msg)
-        if 'Successfully deleted.' in self.msg:
-            assert True
-            self.logger.info("********* Delete Banner Test Passed *********")
-        else:
-            self.driver.save_screenshot(self.screenshot + "test_deleteBanner_scr.png")
-            self.logger.error("********* Delete Banner Test Failed ************")
-            assert False
-        self.driver.close()
+        # Define the expected success message
+        success_message = 'Successfully deleted.'
+        sleep(SHORT_WAIT)
+        # Call the assertion function to validate delete banners
+        perform_delete_banners_assertion(self.driver, self.banners, self.logger, success_message)

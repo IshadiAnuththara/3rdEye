@@ -1,10 +1,10 @@
 import time
-from selenium.webdriver.common.by import By
 import self as self
-from page_objects.LoginPage import LoginPage
-from page_objects.Logout import Logout
+from pageObjects.LoginPage import LoginPage
+from pageObjects.Logout import Logout
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
+from utilities.test_utils import perform_logout_assertion
 
 
 class TestLogout:
@@ -12,8 +12,6 @@ class TestLogout:
     username = ReadConfig.get_username()
     password = ReadConfig.get_password()
     logger = LogGen.loggen()
-    notification = "//div[@class='notifyjs-corner']"
-    screenshot = ".\\Screenshots\\"
 
     def test_logout(self, setup):
         self.driver = setup
@@ -21,27 +19,21 @@ class TestLogout:
 
         # Login
 
-        self.lp = LoginPage(self.driver)
-        self.lp.set_username(self.username)
-        self.lp.set_password(self.password)
+        self.login = LoginPage(self.driver)
+        self.login.set_username(self.username)
+        self.login.set_password(self.password)
         time.sleep(3)
-        self.lp.click_login()
+        self.login.click_login()
         time.sleep(7)
 
         # Logout
 
-        self.lt = Logout(self.driver)
-        self.lt.click_logout()
+        self.logout = Logout(self.driver)
+        self.logout.click_logout()
         time.sleep(3)
 
-        self.msg = self.driver.find_element(By.XPATH, self.notification).text
-        print(self.msg)
-        if 'Successfully logged out.' in self.msg:
-            assert True
-            self.logger.info("********* Logout Test Passed *********")
-        else:
-            self.driver.save_screenshot(self.screenshot + "test_logout_scr.png")
-            self.logger.error("********* Logout Test Failed ************")
-            assert False
-        time.sleep(5)
+        # Define the expected success message
+        success_message = 'Successfully logged out.'
+        # Call the assertion function to validate login
+        perform_logout_assertion(self.driver, self.logout, self.logger, success_message)
         self.driver.close()

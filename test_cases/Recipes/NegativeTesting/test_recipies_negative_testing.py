@@ -1,10 +1,14 @@
-import time
+import pytest
 import self
-from selenium.webdriver.common.by import By
-from page_objects.LoginPage import LoginPage
-from page_objects.RecipesPage import RecipesPage
+from pageObjects.LoginPage import LoginPage
+from pageObjects.RecipesPage import RecipesPage
+from test_data.recipes_test_data import RecipesTestData
 from utilities.customLogger import LogGen
 from utilities.readProperties import ReadConfig
+from utilities.test_utils import sleep, SHORT_WAIT, MEDIUM_WAIT, perform_add_recipes_without_fill_any_field_assertion, \
+    perform_add_recipes_only_fill_name_assertion, perform_add_recipes_only_add_audio_assertion, \
+    perform_add_recipes_add_spaces_for_name_assertion, perform_add_recipes_only_add_name_and_description_assertion, \
+    perform_add_member_assertion
 
 
 class TestRecipesNegativeTesting:
@@ -12,261 +16,82 @@ class TestRecipesNegativeTesting:
     username = ReadConfig.get_username()
     password = ReadConfig.get_password()
     logger = LogGen.loggen()
-    notification = "//div[@class='notifyjs-corner']"
-    screenshot = ".\\Screenshots\\"
-    name = "Smoothies"
-    description = "Smoothies are thick, creamy beverages usually blended from purred fruits, vegetables, juices, " \
-                  "yogurt, nuts, seeds, and/or dairy or nondairy milk."
 
-    def test_add_recipes_without_fill_any_field(self, setup):
+    @pytest.fixture(autouse=True)
+    def class_setup(self, setup):
+
+        # Initialize the WebDriver and navigate to the application
         self.driver = setup
         self.driver.get(self.base_url)
+        self.driver.maximize_window()
 
-        # Login
+        # Initialize the LoginPage object and perform login
+        self.login_page = LoginPage(self.driver)
+        self.login_page.login_to_application(self.username, self.password)
+        sleep(MEDIUM_WAIT)
 
-        self.lp = LoginPage(self.driver)
-        self.lp.set_username(self.username)
-        self.lp.set_password(self.password)
-        time.sleep(3)
-        self.lp.click_login()
-        time.sleep(5)
-
-        # Access Recipes
-
-        self.rp = RecipesPage(self.driver)
-        self.rp.click_recipies()
-        time.sleep(3)
-
-        # Add Recipes
-
-        self.rp.click_add_recipies()
-
-        time.sleep(3)
-        self.rp.click_save()
-        time.sleep(5)
-
-        self.msg = self.driver.find_element(By.XPATH, self.notification).text
-        print(self.msg)
-        if 'Name required.' in self.msg:
-            assert True
-            self.logger.info("********* Add Recipes - Test Passed *********")
-        else:
-            self.driver.save_screenshot(self.screenshot + "test_addRecipies_scr.png")
-            self.logger.error("********* Add Recipes - Test Failed ************")
-            assert False
+        # Initialize the Recipes Page object
+        self.recipes = RecipesPage(self.driver)
+        sleep(SHORT_WAIT)
+        self.recipes.click_recipies()
+        sleep(MEDIUM_WAIT)
+        yield
         self.driver.close()
 
-    def test_add_recipes_only_fill_name(self, setup):
-        self.driver = setup
-        self.driver.get(self.base_url)
+    def test_negative_testing_001(self):
+        self.recipes.negative_testing_add_recipes_without_fill_any_field()
 
-        # Login
+        # Define the expected success message
+        success_message = 'Name required.'
+        sleep(SHORT_WAIT)
+        # Call the assertion function to validate new announcement creation
+        perform_add_recipes_without_fill_any_field_assertion(self.driver, self.recipes, self.logger, success_message)
 
-        self.lp = LoginPage(self.driver)
-        self.lp.set_username(self.username)
-        self.lp.set_password(self.password)
-        time.sleep(3)
-        self.lp.click_login()
-        time.sleep(5)
+    def test_negative_testing_002(self):
+        self.recipes.negative_testing_add_recipes_only_fill_name(RecipesTestData.name)
 
-        # Access Recipes
+        # Define the expected success message
+        success_message = 'Audio file required.'
+        sleep(SHORT_WAIT)
+        # Call the assertion function to validate new announcement creation
+        perform_add_recipes_only_fill_name_assertion(self.driver, self.recipes, self.logger, success_message)
 
-        self.rp = RecipesPage(self.driver)
-        self.rp.click_recipies()
-        time.sleep(3)
+    def test_negative_testing_003(self):
+        self.recipes.negative_testing_add_recipes_only_add_audio(RecipesTestData.upload_audio)
 
-        # Add Recipes
+        # Define the expected success message
+        success_message = 'Name required.'
+        sleep(SHORT_WAIT)
+        # Call the assertion function to validate new announcement creation
+        perform_add_recipes_only_add_audio_assertion(self.driver, self.recipes, self.logger, success_message)
 
-        self.rp.click_add_recipies()
-        time.sleep(3)
-        self.rp.set_name(self.name)
+    def test_negative_testing_004(self):
+        self.recipes.negative_testing_add_recipes_add_spaces_for_name(RecipesTestData.name_negative_testing,
+                                                                      RecipesTestData.desc,
+                                                                      RecipesTestData.upload_audio)
 
-        time.sleep(3)
-        self.rp.click_save()
-        time.sleep(5)
+        # Define the expected success message
+        success_message = 'Successfully created.'
+        sleep(SHORT_WAIT)
+        # Call the assertion function to validate new announcement creation
+        perform_add_recipes_add_spaces_for_name_assertion(self.driver, self.recipes, self.logger, success_message)
 
-        self.msg = self.driver.find_element(By.XPATH, self.notification).text
-        print(self.msg)
-        if 'Audio file required.' in self.msg:
-            assert True
-            self.logger.info("********* Add Recipes - Test Passed *********")
-        else:
-            self.driver.save_screenshot(self.screenshot + "test_addRecipies_scr.png")
-            self.logger.error("********* Add Recipes - Test Failed ************")
-            assert False
-        self.driver.close()
+    def test_negative_testing_005(self):
+        self.recipes.negative_testing_add_recipes_only_add_name_and_description(RecipesTestData.name,
+                                                                                RecipesTestData.desc)
+        # Define the expected success message
+        success_message = 'Audio file required.'
+        sleep(SHORT_WAIT)
+        # Call the assertion function to validate new announcement creation
+        perform_add_recipes_only_add_name_and_description_assertion(self.driver, self.recipes, self.logger,
+                                                                    success_message)
 
-    def test_add_recipes_only_add_audio(self, setup):
-        self.driver = setup
-        self.driver.get(self.base_url)
+    def test_negative_testing_006(self):
+        self.recipes.negative_testing_add_recipes_without_add_audio(RecipesTestData.name,
+                                                                    RecipesTestData.desc)
 
-        # Login
-
-        self.lp = LoginPage(self.driver)
-        self.lp.set_username(self.username)
-        self.lp.set_password(self.password)
-        time.sleep(3)
-        self.lp.click_login()
-        time.sleep(5)
-
-        # Access Recipes
-
-        self.rp = RecipesPage(self.driver)
-        self.rp.click_recipies()
-        time.sleep(3)
-
-        # Add Recipes
-
-        self.rp.click_add_recipies()
-        time.sleep(3)
-        self.rp.add_audio()
-        time.sleep(3)
-        self.rp.click_save()
-        time.sleep(5)
-
-        self.msg = self.driver.find_element(By.XPATH, self.notification).text
-        print(self.msg)
-        if 'Name required.' in self.msg:
-            assert True
-            self.logger.info("********* Add Recipes - Test Passed *********")
-        else:
-            self.driver.save_screenshot(self.screenshot + "test_addRecipies_scr.png")
-            self.logger.error("********* Add Recipes - Test Failed ************")
-            assert False
-        self.driver.close()
-
-    def test_add_recipes_add_spaces_for_name(self, setup):
-        self.driver = setup
-        self.driver.get(self.base_url)
-
-        # Login
-
-        self.lp = LoginPage(self.driver)
-        self.lp.set_username(self.username)
-        self.lp.set_password(self.password)
-        time.sleep(3)
-        self.lp.click_login()
-        time.sleep(5)
-
-        # Access Recipes
-
-        self.rp = RecipesPage(self.driver)
-        self.rp.click_recipies()
-        time.sleep(3)
-
-        # Add Recipes
-
-        self.rp.click_add_recipies()
-        time.sleep(3)
-        self.rp.set_name("                                                 ")
-        time.sleep(3)
-        self.rp.set_description(self.description)
-        time.sleep(3)
-        self.rp.choose_image()
-        time.sleep(3)
-        self.rp.add_audio()
-        time.sleep(3)
-        self.rp.click_save()
-
-        time.sleep(5)
-
-        self.msg = self.driver.find_element(By.XPATH, self.notification).text
-        print(self.msg)
-        if 'Successfully created.' in self.msg:
-            self.driver.save_screenshot(self.screenshot + "test_addRecipies_scr.png")
-            assert True
-            self.logger.error("********* Add Recipes - Test Failed ************")
-        else:
-            self.logger.info("********* Add Recipes - Test Passed *********")
-            assert False
-
-        self.driver.close()
-
-    def test_add_recipes_only_add_name_and_description(self, setup):
-        self.driver = setup
-        self.driver.get(self.base_url)
-
-        # Login
-
-        self.lp = LoginPage(self.driver)
-        self.lp.set_username(self.username)
-        self.lp.set_password(self.password)
-        time.sleep(3)
-        self.lp.click_login()
-        time.sleep(5)
-
-        # Access Recipes
-
-        self.rp = RecipesPage(self.driver)
-        self.rp.click_recipies()
-        time.sleep(3)
-
-        # Add Recipes
-
-        self.rp.click_add_recipies()
-        time.sleep(3)
-        self.rp.set_name(self.name)
-        time.sleep(3)
-        self.rp.set_description(self.description)
-        time.sleep(3)
-
-        self.rp.click_save()
-
-        time.sleep(5)
-
-        self.msg = self.driver.find_element(By.XPATH, self.notification).text
-        print(self.msg)
-        if 'Audio file required.' in self.msg:
-            assert True
-            self.logger.info("********* Add Recipes - Test Passed *********")
-        else:
-            self.driver.save_screenshot(self.screenshot + "test_addRecipies_scr.png")
-            self.logger.error("********* Add Recipes - Test Failed ************")
-            assert False
-
-        self.driver.close()
-
-    def test_add_recipes_without_add_audio(self, setup):
-        self.driver = setup
-        self.driver.get(self.base_url)
-
-        # Login
-
-        self.lp = LoginPage(self.driver)
-        self.lp.set_username(self.username)
-        self.lp.set_password(self.password)
-        time.sleep(3)
-        self.lp.click_login()
-        time.sleep(5)
-
-        # Access Recipes
-
-        self.rp = RecipesPage(self.driver)
-        self.rp.click_recipies()
-        time.sleep(3)
-
-        # Add Recipes
-
-        self.rp.click_add_recipies()
-        time.sleep(3)
-        self.rp.set_name(self.name)
-        time.sleep(3)
-        self.rp.set_description(self.description)
-        time.sleep(3)
-        self.rp.choose_image()
-        time.sleep(3)
-        self.rp.click_save()
-
-        time.sleep(5)
-
-        self.msg = self.driver.find_element(By.XPATH, self.notification).text
-        print(self.msg)
-        if 'Audio file required.' in self.msg:
-            assert True
-            self.logger.info("********* Add Recipes - Test Passed *********")
-        else:
-            self.driver.save_screenshot(self.screenshot + "test_addRecipies_scr.png")
-            self.logger.error("********* Add Recipes - Test Failed ************")
-            assert False
-
-        self.driver.close()
+        # Define the expected success message
+        success_message = 'Audio file required.'
+        sleep(SHORT_WAIT)
+        # Call the assertion function to validate new announcement creation
+        perform_add_member_assertion(self.driver, self.recipes, self.logger, success_message)

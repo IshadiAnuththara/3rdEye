@@ -1,0 +1,2 @@
+class EyeDonationTestData:
+    name = "kavindu"
